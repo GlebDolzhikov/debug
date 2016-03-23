@@ -55,8 +55,8 @@ function Debugger (){
         if (!conf.param["debug"]&&!manualDebug) return;
         this.starttime = new Date().getTime();
         $(function(){
-            window.onerror = function(e) {
-                debug.error(e);
+            window.onerror = function(e,url,lineNumber) {
+                debug.error("Error: " + e + "in url" + url + "at line" + lineNumber);
             };
             $('body').prepend("<div id='debug' style='top:0;background-color: white;color:black;position:absolute; z-index: 10000;font-size:25px;width:1920px'></div>")
 
